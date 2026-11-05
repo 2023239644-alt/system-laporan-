@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('working_papers', function (Blueprint $table) {
+        Schema::create('proposals', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained(); // Links to Staff (users table)
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('title');
             $table->text('introduction');
             $table->text('objective');
-            $table->enum('status', ['Draft', 'Pending', 'Approved', 'Rejected', 'KIV'])->default('Draft');
-            $table->decimal('total_approved_budget', 10, 2)->nullable();
+            $table->string('organizer');
+            $table->enum('status', ['draft', 'pending', 'approved', 'kiv', 'rejected'])->default('draft');
+            $table->text('admin_remarks')->nullable(); 
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('working_papers');
+        Schema::dropIfExists('proposals');
     }
 };

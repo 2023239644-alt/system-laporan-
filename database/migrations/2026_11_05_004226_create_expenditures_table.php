@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bajets', function (Blueprint $table) {
+        Schema::create('expenditures', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('program_id')->constrained('programs')->onDelete('cascade');
+            $table->string('item_description');
+            $table->integer('quantity');
+            $table->decimal('rate', 8, 2);
+            $table->decimal('total_amount', 10, 2);
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bajets');
+        Schema::dropIfExists('expenditures');
     }
 };

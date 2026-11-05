@@ -3,57 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Kertas Kerja UiTM</title>
-    <!-- Assuming you are using Tailwind via Vite -->
+    <title>e-LAPORAN UiTM</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-50 flex h-screen overflow-hidden text-gray-800">
+<body class="bg-slate-100 flex h-screen overflow-hidden text-slate-800 font-sans">
 
-    <!-- Sidebar (Matches the dark blue sidebar in your design) -->
-    <aside class="w-64 bg-slate-900 text-white flex flex-col hidden md:flex">
-        <div class="h-16 flex items-center px-6 border-b border-slate-700">
-            <h1 class="text-xl font-bold">e-Laporan</h1>
+    <!-- Dark Sidebar -->
+    <aside class="w-64 bg-[#0f172a] text-white flex flex-col justify-between shadow-xl z-20 shrink-0 hidden md:flex">
+        <div>
+            <div class="h-20 flex items-center px-6 gap-3 border-b border-slate-800">
+                <div class="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-xl shadow-md">e</div>
+                <div>
+                    <h1 class="text-base font-bold text-white leading-tight">e-LAPORAN</h1>
+                    <p class="text-[10px] text-slate-400 tracking-wider">uitm</p>
+                </div>
+            </div>
+
+            <div class="px-4 py-6">
+                <p class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider px-3 mb-3">Staff Workspace</p>
+                <nav class="space-y-1">
+                    <a href="/staff/proposals" class="flex items-center gap-3 px-3 py-2.5 bg-blue-600 text-white rounded-lg font-medium text-sm shadow-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Proposals
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:bg-slate-800/60 hover:text-white rounded-lg transition-colors font-medium text-sm">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        Program Reports
+                    </a>
+                </nav>
+
+                <div class="mt-8 mx-1 p-4 rounded-xl bg-slate-800/40 border border-slate-700/50">
+                    <p class="text-[10px] text-slate-400 uppercase font-semibold">Your Access</p>
+                    <p class="text-xs font-semibold text-slate-200 mt-1">Staff • Programme office</p>
+                    <p class="text-[11px] text-slate-400 mt-2 leading-relaxed">
+                        Create proposals & programs<br>
+                        Manage approved programs<br>
+                        Prepare & submit reports
+                    </p>
+                </div>
+            </div>
         </div>
-        <nav class="flex-1 px-4 py-6 space-y-2">
-            <!-- Sidebar Links -->
-            <a href="#" class="flex items-center gap-3 px-3 py-2 bg-blue-600 rounded-lg text-white">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                Dashboard
-            </a>
-            <a href="#" class="flex items-center gap-3 px-3 py-2 hover:bg-slate-800 rounded-lg transition-colors">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                Proposals
-            </a>
-        </nav>
-        <div class="p-4 border-t border-slate-700 text-sm">
-            <p>Logged in as: Staff</p>
+
+        <div class="p-4 border-t border-slate-800 space-y-2 text-xs text-slate-400">
+            <a href="#" class="flex items-center gap-2 px-3 py-1.5 hover:text-white transition-colors">Help & guidance</a>
+            <a href="#" class="flex items-center gap-2 px-3 py-1.5 hover:text-white transition-colors">University single sign-on</a>
         </div>
     </aside>
 
-    <!-- Main Content Area -->
+    <!-- Main Content -->
     <div class="flex-1 flex flex-col h-screen overflow-y-auto">
-        <!-- Top Navbar -->
-        <header class="h-16 bg-white border-b border-gray-200 flex items-center justify-between px-6">
-            <!-- Alert Banner Area (Matches the red/yellow warning banners in design) -->
-            <div class="flex-1">
+        <header class="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0">
+            <div class="flex items-center gap-4">
+                <span class="text-base font-bold text-slate-900">e-LAPORAN</span>
+                <span class="text-slate-300 hidden sm:inline">|</span>
+                <span class="text-xs text-slate-500 font-medium hidden sm:inline">Proposal & compliance portal</span>
+            </div>
+
+            <!-- Flash Banners -->
+            <div class="flex-1 px-6 flex justify-center">
                 @if(session('warning'))
-                    <div class="bg-red-50 text-red-600 px-4 py-2 rounded-md text-sm font-medium border border-red-200">
+                    <div class="bg-red-50 text-red-600 px-4 py-1.5 rounded-md text-sm font-medium border border-red-200 shadow-sm">
                         {{ session('warning') }}
                     </div>
                 @endif
+                @if(session('success'))
+                    <div class="bg-green-50 text-green-600 px-4 py-1.5 rounded-md text-sm font-medium border border-green-200 shadow-sm">
+                        {{ session('success') }}
+                    </div>
+                @endif
             </div>
-            <!-- Profile / Actions -->
-            <div class="flex items-center gap-4">
-                <span class="text-sm font-medium">Muhammad Abu</span>
-                <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">M</div>
+
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-xs">ST</div>
+                <div class="text-left leading-tight hidden md:block">
+                    <p class="text-xs font-semibold text-slate-900">Staff User</p>
+                    <p class="text-[10px] text-slate-400">Staff • Faculty Unit</p>
+                </div>
             </div>
         </header>
 
-        <!-- Page Specific Content Injected Here -->
-        <main class="p-6 flex-1">
+        <main class="p-8 max-w-7xl mx-auto w-full flex-1">
             @yield('content')
         </main>
-    </div>
 
+        <footer class="px-8 py-4 bg-white border-t border-slate-200 flex justify-between items-center text-[11px] text-slate-400 shrink-0 mt-auto">
+            <span>© {{ date('Y') }} Universiti Teknologi MARA • e-Laporan</span>
+            <span>Registry Office / Secure university workspace</span>
+        </footer>
+    </div>
 </body>
 </html>
